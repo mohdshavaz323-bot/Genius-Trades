@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genius Traders AI - Gold (XAUUSD) Risk, Chart Signal & AI Audit SaaS</title>
+  <meta name="description" content="Institutional XAUUSD Forex Risk Calculator, AI Vision Chart Analyzer & Performance Analytics SaaS for Gold Traders.">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & STICKY NAVBAR
+       ========================================================================== -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#landing" class="brand-logo">
+        <div class="brand-icon">GT</div>
+        <div>
+          <span>Genius</span><span class="text-gold">Traders</span> <span style="font-size:0.75rem; background:rgba(6,182,212,0.2); color:var(--accent-cyan); padding:0.15rem 0.4rem; border-radius:4px;">AI</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links">
+        <li><a href="#landing" class="nav-link" data-route="landing">Home</a></li>
+        <li><a href="#dashboard" class="nav-link" data-route="dashboard">Dashboard</a></li>
+        <li><a href="#calculator" class="nav-link" data-route="calculator">XAUUSD Calculator</a></li>
+        <li><a href="#ai-chart" class="nav-link text-cyan" data-route="ai-chart" style="font-weight:700;">📸 AI Chart Signal</a></li>
+        <li><a href="#ai-review" class="nav-link" data-route="ai-review">AI Audit</a></li>
+        <li><a href="#analytics" class="nav-link" data-route="analytics">Analytics</a></li>
+        <li><a href="#pricing" class="nav-link" data-route="pricing">Pricing</a></li>
+        <li><a href="#admin" class="nav-link text-danger" data-route="admin" style="font-weight:700;">Admin</a></li>
+      </ul>
+
+      <!-- User Session Actions -->
+      <div class="nav-actions">
+        <div id="auth-nav-container">
+          <!-- Populated dynamically by auth.js -->
+        </div>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-drawer" class="glass-card" style="display:none; position:fixed; top:70px; left:0; width:100%; z-index:999; padding:1.5rem;">
+    <ul style="list-style:none; display:flex; flex-direction:column; gap:1rem;">
+      <li><a href="#landing" class="nav-link" data-route="landing">Home</a></li>
+      <li><a href="#dashboard" class="nav-link" data-route="dashboard">Dashboard</a></li>
+      <li><a href="#calculator" class="nav-link" data-route="calculator">XAUUSD Calculator</a></li>
+      <li><a href="#ai-chart" class="nav-link text-cyan" data-route="ai-chart">📸 AI Chart Signal</a></li>
+      <li><a href="#ai-review" class="nav-link" data-route="ai-review">AI Audit</a></li>
+      <li><a href="#analytics" class="nav-link" data-route="analytics">Analytics</a></li>
+      <li><a href="#pricing" class="nav-link" data-route="pricing">Pricing</a></li>
+      <li><a href="#admin" class="nav-link text-danger" data-route="admin">Admin Portal</a></li>
+    </ul>
+  </div>
+
+  <!-- Live Market Ticker Banner -->
+  <div class="ticker-banner">
+    <div class="container">
+      <div class="ticker-content">
+        <div class="ticker-item">
+          <span>🥇 XAUUSD (Gold):</span>
+          <span style="color:var(--success); font-weight:700;">$2,464.50</span>
+          <span class="text-success">(+$18.20 / +0.74%)</span>
+        </div>
+        <div class="ticker-item">
+          <span>📸 Vision AI Signal:</span>
+          <span style="color:var(--accent-cyan); font-weight:700;">94% BUY Confluence</span>
+        </div>
+        <div class="ticker-item">
+          <span>⚡ Genius AI Model:</span>
+          <span style="color:var(--primary-gold);">V4-Vision Pro Active</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SECTION 1: LANDING PAGE
+       ========================================================================== -->
+  <section id="section-landing" class="app-section">
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-glow"></div>
+      <div class="container hero-content">
+        <div class="hero-tag">
+          ⚡ Next-Gen XAUUSD Gold Trading Copilot & AI Vision Signal Engine
+        </div>
+        <h1 class="hero-title">
+          Master <span class="gradient-text-gold">Gold Forex Risk</span> & Analyze Charts with <span class="gradient-text-cyan">AI Vision Signals</span>
+        </h1>
+        <p class="hero-subtitle">
+          Upload any XAUUSD or Forex chart screenshot. Genius AI detects order blocks, liquidity sweeps, and outputs instant BUY/SELL signals with exact Entry, Stop Loss, and TP targets.
+        </p>
+
+        <div class="hero-cta">
+          <button class="btn btn-cyan btn-lg" onclick="navigateTo('ai-chart')">
+            📸 Analyze Chart Screenshot
+          </button>
+          <button class="btn btn-primary btn-lg" onclick="navigateTo('calculator')">
+            🧮 Launch XAUUSD Calculator
+          </button>
+        </div>
+
+        <!-- Hero Stats Banner -->
+        <div class="grid-3" style="margin-top: 3rem; text-align: left;">
+          <div class="glass-card" style="padding: 1.25rem;">
+            <div style="font-size: 0.85rem; color: var(--text-muted);">AI Vision Accuracy</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-cyan);">94.2%</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Entry, SL & TP signal accuracy</div>
+          </div>
+          <div class="glass-card" style="padding: 1.25rem;">
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Calculated Lot Precision</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary-gold);">100% Exact</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Standard, Mini & Micro Gold Lots</div>
+          </div>
+          <div class="glass-card" style="padding: 1.25rem;">
+            <div style="font-size: 0.85rem; color: var(--text-muted);">Traders Protected</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: var(--success);">14,200+</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">Over $4.2M capital saved</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Showcase -->
+    <div class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Institutional Feature Suite</div>
+          <h2 class="section-title">Built Specially for Gold (XAUUSD) Traders</h2>
+          <p class="section-desc">Every tool designed from the ground up to handle Gold market volatility and contract specs.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="glass-card feature-card" style="border-color:var(--border-accent);">
+            <div class="feature-icon text-cyan">📸</div>
+            <h3 class="feature-title">AI Chart Screenshot Analyzer</h3>
+            <p class="feature-desc">Upload any trading chart image. Genius AI reads candlesticks, order blocks, and provides clear BUY/SELL signals with exact Entry, SL, and TP levels.</p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="feature-icon">🧮</div>
+            <h3 class="feature-title">XAUUSD Lot Size Calculator</h3>
+            <p class="feature-desc">Input account balance, entry, SL, and risk %. Calculates standard (100 oz), mini, and micro lot sizes with exact pip values and dollar drawdown.</p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="feature-icon">🤖</div>
+            <h3 class="feature-title">AI Trade Review & Audit</h3>
+            <p class="feature-desc">Submit your XAUUSD trades to receive an AI Execution Grade (A+ to F), score, mistake detection (FOMO, over-leveraging), and actionable advice.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Table -->
+    <div id="section-pricing-landing" class="features-section" style="padding-top:0;">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-subtitle">Flexible Subscriptions</div>
+          <h2 class="section-title">Choose Your Trading Tier</h2>
+          <p class="section-desc">Start free or upgrade to unlock unlimited AI chart analysis and trade auditing.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Free Tier -->
+          <div class="glass-card pricing-card">
+            <h3>FREE STARTER</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem;">For beginner Gold traders</p>
+            <div style="margin: 1.5rem 0;">
+              <span class="price-num">$0</span>
+              <span class="price-period">/ month</span>
+            </div>
+            <ul class="pricing-features">
+              <li>✅ 2 AI Chart Analyses / month</li>
+              <li>✅ 3 AI Trade Audits / month</li>
+              <li>✅ XAUUSD Gold Risk Calculator</li>
+              <li>❌ Journal presets saving</li>
+              <li>❌ Advanced Equity Analytics</li>
+            </ul>
+            <button class="btn btn-secondary" onclick="openModal('signup-modal')" style="margin-top:auto;">
+              Get Started Free
+            </button>
+          </div>
+
+          <!-- Pro Tier -->
+          <div class="glass-card pricing-card popular">
+            <div class="popular-badge">MOST POPULAR</div>
+            <h3>PRO TRADER</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem;">For serious XAUUSD traders</p>
+            <div style="margin: 1.5rem 0;">
+              <span class="price-num gradient-text-gold">$49</span>
+              <span class="price-period">/ month</span>
+            </div>
+            <ul class="pricing-features">
+              <li>✅ <strong>UNLIMITED</strong> AI Chart Signal Analyses</li>
+              <li>✅ <strong>UNLIMITED</strong> AI Trade Audits</li>
+              <li>✅ Save Signals & Presets to Journal</li>
+              <li>✅ Complete Performance Analytics</li>
+              <li>✅ Strategy Setup Breakdown</li>
+            </ul>
+            <button class="btn btn-primary" onclick="openUpgradeModal('Upgrade to Pro Tier')" style="margin-top:auto;">
+              Start Pro Access
+            </button>
+          </div>
+
+          <!-- Premium Tier -->
+          <div class="glass-card pricing-card">
+            <h3>PREMIUM VIP</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem;">For prop firm & institutional traders</p>
+            <div style="margin: 1.5rem 0;">
+              <span class="price-num gradient-text-cyan">$99</span>
+              <span class="price-period">/ month</span>
+            </div>
+            <ul class="pricing-features">
+              <li>✅ Everything in Pro Tier</li>
+              <li>✅ Real-Time AI Copilot Setup Scorer</li>
+              <li>✅ VIP Gold Liquidity Heatmap Alerts</li>
+              <li>✅ Priority AI Signal Processing</li>
+              <li>✅ 1-on-1 Risk Strategy Consultation</li>
+            </ul>
+            <button class="btn btn-cyan" onclick="openUpgradeModal('Upgrade to Premium VIP')" style="margin-top:auto;">
+              Join Premium VIP
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 2: NEW AI CHART SCREENSHOT ANALYZER
+       ========================================================================== -->
+  <section id="section-ai-chart" class="app-section" style="display:none; padding: 2rem 0;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <h2>📸 AI Vision Chart Analyzer</h2>
+          <p style="color:var(--text-secondary);">Upload any XAUUSD or Forex chart screenshot for instant AI BUY / SELL signals with exact Entry, SL, and TP targets.</p>
+        </div>
+        <span id="chart-quota-badge" class="badge badge-pro">Quota: 2 / 2 Free Chart Signals Left</span>
+      </div>
+
+      <!-- Presets bar -->
+      <div class="glass-card" style="padding:1rem; margin-bottom:2rem;">
+        <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem; font-weight:600;">⚡ 1-CLICK TEST WITH PRESET CHART SAMPLES:</div>
+        <div id="chart-preset-samples" style="display:flex; gap:0.75rem; flex-wrap:wrap;"></div>
+      </div>
+
+      <div class="ai-review-container">
+        <!-- Upload & Settings Panel -->
+        <div class="glass-card" style="padding:1.75rem;">
+          <h3 style="margin-bottom:1.25rem; color:var(--accent-cyan);">Upload Chart Screenshot</h3>
+
+          <form id="ai-chart-form">
+            <div class="form-group">
+              <label class="form-label">Select Trading Pair</label>
+              <select id="chart-pair" class="form-control">
+                <option value="XAUUSD">🥇 Gold (XAUUSD)</option>
+                <option value="EURUSD">💶 EUR/USD</option>
+                <option value="GBPUSD">💷 GBP/USD</option>
+                <option value="BTCUSD">₿ Bitcoin (BTCUSD)</option>
+              </select>
+            </div>
+
+            <!-- Upload Dropzone -->
+            <div class="form-group">
+              <label class="form-label">Chart Screenshot Image</label>
+              <div id="chart-dropzone" style="border: 2px dashed var(--border-accent); border-radius: var(--radius-md); padding: 2rem; text-align: center; cursor: pointer; background: rgba(6,182,212,0.05); transition: background var(--transition-fast);">
+                <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📷</div>
+                <div style="font-weight: 600; font-size: 0.95rem;">Drag & drop chart screenshot here</div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">or click to select file (PNG, JPG, WEBP)</div>
+                <input type="file" id="chart-file-input" accept="image/*" style="display: none;">
+              </div>
+            </div>
+
+            <!-- Image Preview Box -->
+            <div id="chart-preview-container" style="display: none; margin-bottom: 1.25rem; position: relative;">
+              <img id="chart-preview-img" src="" alt="Chart Preview" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <button type="button" id="chart-remove-img" style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.7); color: #FFF; border: none; border-radius: 50%; width: 28px; height: 28px; cursor: pointer;">✕</button>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Additional Context / Trader Rationale (Optional)</label>
+              <input type="text" id="chart-notes" class="form-control" placeholder="e.g. 4H timeframe, retesting order block after CPI news...">
+            </div>
+
+            <button id="chart-submit-btn" type="submit" class="btn btn-cyan" style="width:100%; margin-top:1rem;">
+              📸 Run AI Chart Vision Signal
+            </button>
+          </form>
+        </div>
+
+        <!-- AI Signal Card Output -->
+        <div id="chart-results-box" class="glass-card" style="padding:1.75rem; display:none; border-color:var(--border-accent);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; border-bottom:1px solid var(--border-color); padding-bottom:1rem;">
+            <div>
+              <span id="sig-pair-badge" class="badge badge-premium">XAUUSD</span>
+              <h3 id="sig-type-title" class="text-success" style="font-size:1.8rem; margin-top:0.25rem;">BUY (LONG)</h3>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:0.75rem; color:var(--text-muted);">CONFIDENCE</div>
+              <div id="sig-confidence" class="result-val text-gold" style="font-size:1.8rem;">94%</div>
+            </div>
+          </div>
+
+          <!-- Signal Levels Grid -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.25rem;">
+            <div class="result-metric">
+              <div class="result-sub">ENTRY PRICE</div>
+              <div id="sig-entry" style="font-size:1.3rem; font-weight:700;" class="text-gold">$2,452.80</div>
+            </div>
+            <div class="result-metric">
+              <div class="result-sub">STOP LOSS</div>
+              <div id="sig-sl" style="font-size:1.3rem; font-weight:700;" class="text-danger">$2,442.50</div>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.25rem;">
+            <div class="result-metric">
+              <div class="result-sub">TARGET (TP 1)</div>
+              <div id="sig-tp1" style="font-size:1.3rem; font-weight:700;" class="text-success">$2,468.00</div>
+            </div>
+            <div class="result-metric">
+              <div class="result-sub">EXTENDED TARGET (TP 2)</div>
+              <div id="sig-tp2" style="font-size:1.3rem; font-weight:700;" class="text-cyan">$2,485.00</div>
+            </div>
+          </div>
+
+          <div class="result-metric" style="margin-bottom:1.25rem;">
+            <div class="result-sub">RECOMMENDED LOT SIZE (BASED ON BALANCE)</div>
+            <div id="sig-recommended-lots" style="font-size:1.2rem; font-weight:700;" class="text-gold">0.20 Standard Lots</div>
+          </div>
+
+          <div style="margin-bottom:1.25rem;">
+            <h4 style="color:var(--accent-cyan); font-size:0.95rem; margin-bottom:0.5rem;">Detected Chart Confluences</h4>
+            <ul id="sig-confluences-ul" style="list-style:none; font-size:0.85rem; display:flex; flex-direction:column; gap:0.4rem;"></ul>
+          </div>
+
+          <button id="sig-save-btn" class="btn btn-primary" style="width:100%; margin-top:1rem;">
+            💾 Save Signal to Trade Journal
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: USER DASHBOARD
+       ========================================================================== -->
+  <section id="section-dashboard" class="app-section" style="display:none; padding: 2rem 0;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <h2>Trader Dashboard</h2>
+          <p style="color:var(--text-secondary);">Overview of your XAUUSD trading performance and risk metrics.</p>
+        </div>
+        <div style="display:flex; gap:1rem;">
+          <button class="btn btn-cyan btn-sm" onclick="navigateTo('ai-chart')">📸 AI Chart</button>
+          <button class="btn btn-primary btn-sm" onclick="navigateTo('calculator')">🧮 Calculator</button>
+          <button class="btn btn-secondary btn-sm" onclick="navigateTo('ai-review')">🤖 AI Review</button>
+        </div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="dashboard-grid">
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.85rem; color:var(--text-muted);">Account Balance</div>
+            <div id="dash-balance" style="font-size:1.8rem; font-weight:800;" class="text-gold">$10,000</div>
+          </div>
+          <div class="stat-icon">💰</div>
+        </div>
+
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.85rem; color:var(--text-muted);">Net P&L</div>
+            <div id="dash-pnl" class="result-val text-success">+$0</div>
+          </div>
+          <div class="stat-icon">📈</div>
+        </div>
+
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.85rem; color:var(--text-muted);">Win Rate</div>
+            <div id="dash-winrate" style="font-size:1.8rem; font-weight:800;">0%</div>
+          </div>
+          <div class="stat-icon">🎯</div>
+        </div>
+
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.85rem; color:var(--text-muted);">Profit Factor</div>
+            <div id="dash-profitfactor" style="font-size:1.8rem; font-weight:800;" class="text-cyan">0.00</div>
+          </div>
+          <div class="stat-icon">⚖️</div>
+        </div>
+
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.85rem; color:var(--text-muted);">AI Reviews Remaining</div>
+            <div id="dash-reviews-left" style="font-size:1.4rem; font-weight:800;">3 / 3</div>
+          </div>
+          <div class="stat-icon">🤖</div>
+        </div>
+      </div>
+
+      <!-- Equity Curve Section -->
+      <div class="glass-card" style="padding: 1.5rem; margin-bottom: 2rem;">
+        <h3 style="margin-bottom: 1rem;">Equity Growth Curve</h3>
+        <canvas id="dash-equity-chart"></canvas>
+      </div>
+
+      <!-- Recent Trade Journal -->
+      <div class="glass-card" style="padding: 1.5rem;">
+        <h3 style="margin-bottom: 1rem;">Recent Trade Journal</h3>
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.9rem;">
+            <thead>
+              <tr style="border-bottom:1px solid var(--border-color); color:var(--text-muted);">
+                <th style="padding:0.75rem;">Pair</th>
+                <th style="padding:0.75rem;">Type</th>
+                <th style="padding:0.75rem;">Entry</th>
+                <th style="padding:0.75rem;">Exit</th>
+                <th style="padding:0.75rem;">Lot Size</th>
+                <th style="padding:0.75rem;">P&L ($)</th>
+                <th style="padding:0.75rem;">Outcome</th>
+              </tr>
+            </thead>
+            <tbody id="dash-trades-tbody">
+              <!-- Populated dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: XAUUSD FOREX RISK CALCULATOR
+       ========================================================================== -->
+  <section id="section-calculator" class="app-section" style="display:none; padding: 2rem 0;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:2rem; text-align:left;">
+        <h2 class="section-title">XAUUSD Gold Forex Risk Calculator</h2>
+        <p class="section-desc">Calculate exact lot size, dollar risk, pip values, and risk-to-reward for Gold trading (100 oz contract size).</p>
+      </div>
+
+      <div class="calc-grid">
+        <!-- Input Form Box -->
+        <div class="calc-box">
+          <h3 style="margin-bottom: 1.5rem; color:var(--primary-gold);">1. Trade Input Parameters</h3>
+
+          <div class="form-group">
+            <label class="form-label">Account Balance ($)</label>
+            <input type="number" id="calc-balance" class="form-control" value="10000" step="100">
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group">
+              <label class="form-label">Risk Percentage (%)</label>
+              <input type="number" id="calc-risk" class="form-control" value="2.0" step="0.1" min="0.1" max="20">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Order Direction</label>
+              <select id="calc-direction" class="form-control">
+                <option value="BUY">BUY (Long)</option>
+                <option value="SELL">SELL (Short)</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group">
+              <label class="form-label">Entry Price ($/oz)</label>
+              <input type="number" id="calc-entry" class="form-control" value="2450.50" step="0.10">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Stop Loss Price ($/oz)</label>
+              <input type="number" id="calc-sl" class="form-control" value="2440.50" step="0.10">
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group">
+              <label class="form-label">Take Profit Price ($/oz)</label>
+              <input type="number" id="calc-tp" class="form-control" value="2470.50" step="0.10">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Spread (Pips)</label>
+              <input type="number" id="calc-spread" class="form-control" value="1.5" step="0.1">
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Calculation Box -->
+        <div class="calc-box" style="border-color:var(--border-accent);">
+          <h3 style="margin-bottom: 1.5rem; color:var(--accent-cyan);">2. Recommended Position Sizing</h3>
+
+          <div class="result-metric" style="background:rgba(245,158,11,0.1); border-color:var(--border-accent);">
+            <div class="result-sub">RECOMMENDED LOT SIZE (100 oz per Lot)</div>
+            <div id="res-lots" class="result-val">0.20 Lots</div>
+            <div id="res-mini-lots" style="font-size:0.85rem; color:var(--text-secondary); margin-top:0.25rem;">2.0 Mini / 20 Micro Lots</div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="result-metric">
+              <div class="result-sub">EXACT DOLLAR RISK</div>
+              <div id="res-risk-dollar" style="font-size:1.4rem; font-weight:700;" class="text-danger">$200.00</div>
+            </div>
+            <div class="result-metric">
+              <div class="result-sub">POTENTIAL PROFIT</div>
+              <div id="res-potential-profit" style="font-size:1.4rem; font-weight:700;" class="text-success">$400.00</div>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="result-metric">
+              <div class="result-sub">RISK TO REWARD (R:R)</div>
+              <div id="res-rr-ratio" style="font-size:1.4rem; font-weight:700;" class="text-cyan">1 : 2.0</div>
+            </div>
+            <div class="result-metric">
+              <div class="result-sub">STOP LOSS DISTANCE</div>
+              <div id="res-sl-pips" style="font-size:1.2rem; font-weight:700;">100 Pips ($10.00)</div>
+            </div>
+          </div>
+
+          <!-- Warnings & Actions -->
+          <div id="calc-warnings"></div>
+
+          <div style="display:flex; gap:1rem; margin-top:1.5rem;">
+            <button id="calc-copy-btn" class="btn btn-outline-gold" style="flex:1;">📋 Copy Lot Size</button>
+            <button id="calc-save-btn" class="btn btn-primary" style="flex:1;">💾 Save to Journal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 5: PERFORMANCE ANALYTICS
+       ========================================================================== -->
+  <section id="section-analytics" class="app-section" style="display:none; padding: 2rem 0;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
+        <div>
+          <h2>Performance Analytics</h2>
+          <p style="color:var(--text-secondary);">Deep dive into your win rate, profit factor, drawdown, and strategy edge.</p>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="dashboard-grid">
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Total Trades</div>
+            <div id="an-total-trades" style="font-size:1.6rem; font-weight:800;">0</div>
+          </div>
+        </div>
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Win Rate</div>
+            <div id="an-winrate" style="font-size:1.6rem; font-weight:800;" class="text-success">0%</div>
+          </div>
+        </div>
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Profit Factor</div>
+            <div id="an-profit-factor" style="font-size:1.6rem; font-weight:800;" class="text-gold">0.0</div>
+          </div>
+        </div>
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Average Win</div>
+            <div id="an-avg-win" style="font-size:1.6rem; font-weight:800;" class="text-success">$0</div>
+          </div>
+        </div>
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Average Loss</div>
+            <div id="an-avg-loss" style="font-size:1.6rem; font-weight:800;" class="text-danger">$0</div>
+          </div>
+        </div>
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Max Drawdown</div>
+            <div id="an-max-dd" style="font-size:1.6rem; font-weight:800;" class="text-danger">$0</div>
+          </div>
+        </div>
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Sharpe Ratio</div>
+            <div id="an-sharpe" style="font-size:1.6rem; font-weight:800;" class="text-cyan">0.0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts row -->
+      <div style="display:grid; grid-template-columns: 2fr 1fr; gap:1.5rem; margin-top:2rem;">
+        <div class="glass-card" style="padding:1.5rem;">
+          <h3 style="margin-bottom:1rem;">Cumulative Equity Growth ($)</h3>
+          <canvas id="analytics-equity-chart"></canvas>
+        </div>
+        <div class="glass-card" style="padding:1.5rem; text-align:center;">
+          <h3 style="margin-bottom:1rem;">Win / Loss Ratio</h3>
+          <canvas id="analytics-winloss-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 6: AI TRADE REVIEW INTERFACE
+       ========================================================================== -->
+  <section id="section-ai-review" class="app-section" style="display:none; padding: 2rem 0;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <h2>AI Trade Review & Audit</h2>
+          <p style="color:var(--text-secondary);">Audit your XAUUSD trades against institutional risk, volatility, and execution rules.</p>
+        </div>
+        <span id="ai-quota-badge" class="badge badge-pro">Quota: 3 / 3 Used</span>
+      </div>
+
+      <!-- Presets bar -->
+      <div class="glass-card" style="padding:1rem; margin-bottom:2rem;">
+        <div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem; font-weight:600;">⚡ QUICK TEST WITH PRESET TRADE SAMPLES:</div>
+        <div id="ai-preset-samples" style="display:flex; gap:0.75rem; flex-wrap:wrap;"></div>
+      </div>
+
+      <div class="ai-review-container">
+        <!-- Input Form -->
+        <div class="glass-card" style="padding:1.75rem;">
+          <h3 style="margin-bottom:1.25rem; color:var(--primary-gold);">Trade Parameters</h3>
+
+          <form id="ai-review-form">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">Order Type</label>
+                <select id="ai-direction" class="form-control">
+                  <option value="BUY">BUY (Long)</option>
+                  <option value="SELL">SELL (Short)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Risk Percentage (%)</label>
+                <input type="number" id="ai-risk" class="form-control" value="2.0" step="0.1">
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">Entry Price ($)</label>
+                <input type="number" id="ai-entry" class="form-control" value="2450.50" step="0.10">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Exit Price ($)</label>
+                <input type="number" id="ai-exit" class="form-control" value="2465.50" step="0.10">
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label class="form-label">Stop Loss ($)</label>
+                <input type="number" id="ai-sl" class="form-control" value="2442.00" step="0.10">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Take Profit ($)</label>
+                <input type="number" id="ai-tp" class="form-control" value="2465.50" step="0.10">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Trader Rationale & Execution Notes</label>
+              <textarea id="ai-notes" class="form-control" rows="3" placeholder="Describe setup, market session, emotions or news factors..."></textarea>
+            </div>
+
+            <button id="ai-submit-btn" type="submit" class="btn btn-primary" style="width:100%; margin-top:1rem;">
+              🤖 Run AI Trade Audit
+            </button>
+          </form>
+        </div>
+
+        <!-- Audit Results Box -->
+        <div id="ai-results-box" class="glass-card" style="padding:1.75rem; display:none; border-color:var(--border-accent);">
+          <div style="text-align:center; margin-bottom:1.5rem;">
+            <div class="score-badge-circle">
+              <div id="ai-res-score" class="score-num text-gold">94</div>
+              <div style="font-size:0.65rem; color:var(--text-muted);">SCORE</div>
+            </div>
+            <h3 id="ai-res-grade" class="gradient-text-gold" style="font-size:1.8rem;">Grade A+</h3>
+          </div>
+
+          <div style="margin-bottom:1.25rem;">
+            <h4 style="color:var(--success); font-size:0.95rem; margin-bottom:0.5rem;">Execution Highlights</h4>
+            <ul id="ai-res-positives" style="list-style:none; font-size:0.85rem; display:flex; flex-direction:column; gap:0.4rem;"></ul>
+          </div>
+
+          <div style="margin-bottom:1.25rem;">
+            <h4 style="color:var(--danger); font-size:0.95rem; margin-bottom:0.5rem;">Trading Mistakes Identified</h4>
+            <ul id="ai-res-mistakes" style="list-style:none; font-size:0.85rem; display:flex; flex-direction:column; gap:0.4rem;"></ul>
+          </div>
+
+          <div>
+            <h4 style="color:var(--primary-gold); font-size:0.95rem; margin-bottom:0.5rem;">Actionable AI Advice</h4>
+            <ul id="ai-res-recommendations" style="list-style:none; font-size:0.85rem; display:flex; flex-direction:column; gap:0.4rem;"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 7: ADMIN DASHBOARD
+       ========================================================================== -->
+  <section id="section-admin" class="app-section" style="display:none; padding: 2rem 0;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
+        <div>
+          <h2>System Admin Portal</h2>
+          <p style="color:var(--text-secondary);">Manage users, subscription MRR, feature flags, and system tiers.</p>
+        </div>
+      </div>
+
+      <!-- Admin Stat Cards -->
+      <div class="dashboard-grid">
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Total Users</div>
+            <div id="adm-total-users" style="font-size:1.8rem; font-weight:800;">0</div>
+          </div>
+        </div>
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Active Paid Subs</div>
+            <div id="adm-active-subs" style="font-size:1.8rem; font-weight:800;" class="text-cyan">0</div>
+          </div>
+        </div>
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Monthly Recurring Revenue</div>
+            <div id="adm-mrr" style="font-size:1.8rem; font-weight:800;" class="text-gold">$0</div>
+          </div>
+        </div>
+        <div class="glass-card stat-card">
+          <div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Total AI Calls</div>
+            <div id="adm-ai-calls" style="font-size:1.8rem; font-weight:800;" class="text-success">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Management Table -->
+      <div class="glass-card" style="padding:1.5rem; margin-top:2rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:1rem;">
+          <h3>Registered SaaS Users</h3>
+          <input type="text" id="admin-user-search" class="form-control" placeholder="Search by name or email..." style="max-width:280px;">
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.9rem;">
+            <thead>
+              <tr style="border-bottom:1px solid var(--border-color); color:var(--text-muted);">
+                <th style="padding:0.75rem;">Name</th>
+                <th style="padding:0.75rem;">Email</th>
+                <th style="padding:0.75rem;">Current Tier</th>
+                <th style="padding:0.75rem;">Balance</th>
+                <th style="padding:0.75rem;">Reviews Used</th>
+                <th style="padding:0.75rem;">Actions / Change Tier</th>
+              </tr>
+            </thead>
+            <tbody id="admin-users-tbody">
+              <!-- Populated dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MODALS: AUTH & UPGRADE
+       ========================================================================== -->
+
+  <!-- LOGIN MODAL -->
+  <div id="login-modal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('login-modal')">✕</button>
+      <h3 style="margin-bottom:0.5rem;">Sign In to Genius Traders AI</h3>
+      <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1.5rem;">Enter your email to access your trading dashboard.</p>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="login-email" class="form-control" value="trader@free.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="login-pass" class="form-control" value="demo123" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">Sign In</button>
+      </form>
+
+      <!-- Quick Demo Account Switchers -->
+      <div style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border-color);">
+        <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700; margin-bottom:0.5rem; text-transform:uppercase;">⚡ 1-Click Demo Logins for Instant Testing:</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem;">
+          <button class="btn btn-secondary btn-sm" data-demo-tier="free">Free User (Alex)</button>
+          <button class="btn btn-secondary btn-sm" data-demo-tier="pro">Pro User (Sarah)</button>
+          <button class="btn btn-secondary btn-sm" data-demo-tier="premium">VIP User (Marcus)</button>
+          <button class="btn btn-secondary btn-sm text-danger" data-demo-tier="admin">Admin Portal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNUP MODAL -->
+  <div id="signup-modal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('signup-modal')">✕</button>
+      <h3 style="margin-bottom:0.5rem;">Create Your Account</h3>
+      <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1.5rem;">Start calculating Gold risk and auditing trades in seconds.</p>
+
+      <form id="signup-form">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="signup-name" class="form-control" placeholder="e.g. David Vance" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="signup-email" class="form-control" placeholder="trader@example.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="signup-pass" class="form-control" placeholder="Create password" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">Create Free Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- UPGRADE PLAN MODAL -->
+  <div id="upgrade-modal" class="modal-overlay">
+    <div class="modal-box" style="max-width:550px;">
+      <button class="modal-close" onclick="closeModal('upgrade-modal')">✕</button>
+      <div style="text-align:center; margin-bottom:1.5rem;">
+        <span class="badge badge-premium" style="margin-bottom:0.5rem;">UNLOCK FULL ACCESS</span>
+        <h3>Upgrade Subscription Tier</h3>
+        <p id="upgrade-reason" style="color:var(--primary-gold); font-size:0.9rem; margin-top:0.25rem;">Unlock unlimited AI Trade Audits and Advanced Analytics.</p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:1rem;">
+        <div class="glass-card" style="padding:1rem; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <h4 style="margin-bottom:0.2rem;">PRO TRADER</h4>
+            <div style="font-size:0.8rem; color:var(--text-muted);">Unlimited AI Chart Signals, Audits, Journal Presets, Advanced Charts</div>
+          </div>
+          <button class="btn btn-primary btn-sm" data-upgrade-tier="pro">$49/mo Upgrade</button>
+        </div>
+
+        <div class="glass-card" style="padding:1rem; display:flex; justify-content:space-between; align-items:center; border-color:var(--border-accent);">
+          <div>
+            <h4 style="margin-bottom:0.2rem;" class="gradient-text-gold">PREMIUM VIP</h4>
+            <div style="font-size:0.8rem; color:var(--text-muted);">AI Setup Copilot, Gold Liquidity Heatmap, Priority Support</div>
+          </div>
+          <button class="btn btn-cyan btn-sm" data-upgrade-tier="premium">$99/mo Upgrade</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Bottom Bar -->
+  <div class="mobile-bottom-bar">
+    <ul class="mobile-bottom-nav">
+      <li>
+        <a href="#landing" class="mobile-nav-item" data-route="landing">
+          <span>🏠</span>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="#ai-chart" class="mobile-nav-item" data-route="ai-chart">
+          <span>📸</span>
+          <span>AI Signal</span>
+        </a>
+      </li>
+      <li>
+        <a href="#calculator" class="mobile-nav-item" data-route="calculator">
+          <span>🧮</span>
+          <span>Calc</span>
+        </a>
+      </li>
+      <li>
+        <a href="#dashboard" class="mobile-nav-item" data-route="dashboard">
+          <span>📊</span>
+          <span>Dash</span>
+        </a>
+      </li>
+      <li>
+        <a href="#pricing" class="mobile-nav-item" data-route="pricing">
+          <span>💎</span>
+          <span>Upgrade</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/db.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/ai-reviewer.js"></script>
+  <script src="js/ai-chart-analyzer.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

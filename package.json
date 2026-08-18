@@ -1,0 +1,28 @@
+{
+  "name": "genius-traders-ai-saas",
+  "version": "1.0.0",
+  "description": "Genius Traders AI - Gold (XAUUSD) Risk Management, Vision Chart Signals & AI Trade Audit SaaS Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "xauusd",
+    "forex",
+    "risk-calculator",
+    "ai-trading",
+    "chart-analyzer",
+    "saas"
+  ],
+  "author": "Genius Traders AI",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
